@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Spotter</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    
+    <!-- List Workouts Strings -->
+    <string name="user_greeting">Hi, Justin</string>
+
+    <string name="workout_name">Heavy Chest</string>
+    <string name="workout_date">Sunday, March 13, 2016</string>
+    <string name="workout_start_time">Started at 8:03am</string>
+</resources>
