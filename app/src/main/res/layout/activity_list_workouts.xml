@@ -1,16 +1,62 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
+    android:paddingTop="32dp"
     tools:context=".ListWorkouts"
-    tools:ignore="MergeRootFrame" >
+    tools:ignore="MergeRootFrame"
+    android:orientation="vertical">
 
-    <ListView
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/spotter_logo"
+        android:maxHeight="100dp"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true" />
+
+    <TextView
+        android:id="@+id/user_greeting"
+        android:text="@string/user_greeting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:paddingTop="48dp"
+        android:layout_marginBottom="40dp"/>
+
+    <!--
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="It's Heavy Triceps day"
+        android:textSize="20sp"
+        android:layout_marginBottom="16dp"/>
+        -->
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="24dp"
+        android:paddingBottom="24dp"
+        android:paddingLeft="48dp"
+        android:paddingRight="48dp"
+        android:textColor="@android:color/white"
+        android:background="#f45249"
+        android:text="New workout"/>
+
+    <GridView
         android:id="@+id/list_workouts_listview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"></ListView>
+        android:numColumns="1"
+        android:verticalSpacing="16dp"
+        android:gravity="center"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="16dp">
+    </GridView>
 
-</FrameLayout>
+</LinearLayout>

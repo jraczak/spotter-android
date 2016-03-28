@@ -5,7 +5,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ListView;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.GridView;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -47,9 +50,16 @@ public class ListWorkouts extends Activity {
                 timeFormat.format(now)
         );
 
+        Workout workout4 = new Workout(
+                "Heavy Biceps",
+                dateFormat.format(now),
+                timeFormat.format(now)
+        );
+
         mWorkoutsList.add(workout1);
         mWorkoutsList.add(workout2);
         mWorkoutsList.add(workout3);
+        mWorkoutsList.add(workout4);
 
         Log.d("onCreate", "Array list size is " + mWorkoutsList.size());
 
@@ -58,11 +68,20 @@ public class ListWorkouts extends Activity {
 
         // Get the ListView to display the workouts
         Log.d(LOG_TAG, "Getting the listview");
-        ListView listView = (ListView) findViewById(R.id.list_workouts_listview);
+        GridView gridView = (GridView) findViewById(R.id.list_workouts_listview);
 
         // Attach the WorkoutListAdapter
         Log.d(LOG_TAG, "Attaching the adapter to the listview");
-        listView.setAdapter(mWorkoutListAdapter);
+        gridView.setAdapter(mWorkoutListAdapter);
+
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getApplicationContext(),
+                        mWorkoutsList.get(position).name,
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 

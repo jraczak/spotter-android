@@ -10,7 +10,8 @@
     android:layout_marginBottom="8dp"
     android:layout_marginLeft="16dp"
     android:layout_marginRight="16dp"
-    card_view:cardCornerRadius="2dp">
+    card_view:cardCornerRadius="2dp"
+    card_view:cardElevation="4sp">
 
 
 
@@ -20,7 +21,8 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingLeft="16dp"
-        android:paddingRight="16dp">
+        android:paddingRight="16dp"
+        android:background="#f45249">
 
         <TextView
             android:id="@+id/list_workouts_workout_name"
@@ -31,6 +33,7 @@
             android:textStyle="bold"
             android:paddingTop="24dp"
             android:paddingBottom="48dp"
+            android:textColor="@android:color/white"
             />
 
         <TextView
@@ -39,6 +42,7 @@
             android:layout_height="wrap_content"
             android:text="@string/workout_date"
             android:layout_marginBottom="8dp"
+            android:textColor="@android:color/white"
             />
 
         <TextView
@@ -47,6 +51,7 @@
             android:layout_height="wrap_content"
             android:text="@string/workout_start_time"
             android:layout_marginBottom="12dp"
+            android:textColor="@android:color/white"
             />
 
     </LinearLayout>

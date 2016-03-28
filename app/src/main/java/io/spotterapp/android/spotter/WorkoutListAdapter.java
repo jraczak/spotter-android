@@ -46,35 +46,46 @@ public class WorkoutListAdapter extends BaseAdapter{
         CardView cardView;
         TextView workoutNameTextView;
         TextView workoutDateTextView;
-        TextView workoutStartTimeTextview;
+        TextView workoutStartTimeTextView;
 
         Log.d(LOG_TAG, "convertView is " + convertView);
         Log.d(LOG_TAG, "parent is " + parent);
 
         if (convertView == null) {
             // If the view isn't recycled, initialize it
+
+            Log.d(LOG_TAG, "Workout name is " + this.mWorkoutsList.get(position).name);
+
             cardView = (CardView) mInflater.inflate(R.layout.fragment_workout_list_item, parent, false);
-            workoutNameTextView = (TextView) cardView.findViewById(R.id.list_workouts_workout_name);
-            workoutDateTextView = (TextView) cardView.findViewById(R.id.list_workouts_workout_date);
-            workoutStartTimeTextview = (TextView) cardView.findViewById(R.id.list_workouts_start_time);
+            //workoutNameTextView = (TextView) cardView.findViewById(R.id.list_workouts_workout_name);
+            //workoutDateTextView = (TextView) cardView.findViewById(R.id.list_workouts_workout_date);
+            //workoutStartTimeTextview = (TextView) cardView.findViewById(R.id.list_workouts_start_time);
 
-            CardView.LayoutParams layoutParams = new CardView.LayoutParams(
-                    CardView.LayoutParams.MATCH_PARENT,
-                    CardView.LayoutParams.WRAP_CONTENT
-            );
+            //GridLayout.LayoutParams layoutParams = new GridLayout.LayoutParams(
+            //        GridLayout.,
+            //        GridLayout.LayoutParams.WRAP_CONTENT
+            //);
+//
+            //layoutParams.setMargins(16, 8, 16, 8);
+            //cardView.setLayoutParams(layoutParams);
 
-            layoutParams.setMargins(16, 8, 16, 8);
-            cardView.setLayoutParams(layoutParams);
 
-            Log.d("getView adapter", "Setting text view values if convertView was null - new card view");
-            workoutNameTextView.setText(this.mWorkoutsList.get(position).name);
-            workoutDateTextView.setText(this.mWorkoutsList.get(position).date);
-            workoutStartTimeTextview.setText(this.mWorkoutsList.get(position).startTime);
         }
         else {
             cardView = (CardView) convertView;
         }
-        Log.d("getView adapter", "Tried to make cards");
+        Log.d(LOG_TAG, "Setting card values for " + this.mWorkoutsList.get(position).name);
+
+        workoutNameTextView = (TextView) cardView.findViewById(R.id.list_workouts_workout_name);
+        workoutDateTextView = (TextView) cardView.findViewById(R.id.list_workouts_workout_date);
+        workoutStartTimeTextView = (TextView) cardView.findViewById(R.id.list_workouts_start_time);
+
+
+        workoutNameTextView.setText(this.mWorkoutsList.get(position).name);
+        workoutDateTextView.setText(this.mWorkoutsList.get(position).date);
+        workoutStartTimeTextView.setText("Started at " + this.mWorkoutsList.get(position).startTime);
+
+        Log.d("getView adapter", "Tried to make card for " + this.mWorkoutsList.get(position).name);
 
 
 
