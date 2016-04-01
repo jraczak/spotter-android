@@ -6,8 +6,10 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.GridView;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
@@ -68,13 +70,15 @@ public class ListWorkouts extends Activity {
 
         // Get the ListView to display the workouts
         Log.d(LOG_TAG, "Getting the listview");
-        GridView gridView = (GridView) findViewById(R.id.list_workouts_listview);
+        ListView listView = (ListView) findViewById(R.id.list_workouts_listview);
 
         // Attach the WorkoutListAdapter
         Log.d(LOG_TAG, "Attaching the adapter to the listview");
-        gridView.setAdapter(mWorkoutListAdapter);
+        listView.setAdapter(mWorkoutListAdapter);
 
-        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        setListViewHeightBasedOnItems(listView);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(getApplicationContext(),
@@ -107,5 +111,34 @@ public class ListWorkouts extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public static boolean setListViewHeightBasedOnItems(ListView listView) {
+
+        ListAdapter listAdapter = listView.getAdapter();
+
+        if (listAdapter != null) {
+            int numberOfItems = listAdapter.getCount();
+            int totalItemsHeight = 0;
+
+            for (int itemPosition = 0; itemPosition < numberOfItems; itemPosition++) {
+                View item = listAdapter.getView(itemPosition, null, listView);
+                item.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
+                totalItemsHeight += item.getMeasuredHeight();
+            }
+
+            int totalDividersHeight = listView.getDividerHeight() * (numberOfItems -1 );
+
+            ViewGroup.LayoutParams params =
+                    listView.getLayoutParams();
+            params.height = totalItemsHeight + totalDividersHeight;
+            listView.setLayoutParams(params);
+            listView.requestLayout();
+
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 }
