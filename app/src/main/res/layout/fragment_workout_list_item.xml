@@ -25,13 +25,22 @@
         android:background="#f45249">
 
         <TextView
+            android:id="@+id/list_workouts_program_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/list_workouts_program_name"
+            android:textSize="12sp"
+            android:layout_marginTop="16dp"
+            android:textColor="@android:color/white"
+            />
+        <TextView
             android:id="@+id/list_workouts_workout_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/workout_name"
             android:textSize="36sp"
             android:textStyle="bold"
-            android:paddingTop="24dp"
+            android:layout_marginTop="4dp"
             android:paddingBottom="48dp"
             android:textColor="@android:color/white"
             />
@@ -50,7 +59,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/workout_start_time"
-            android:layout_marginBottom="12dp"
+            android:layout_marginBottom="16dp"
             android:textColor="@android:color/white"
             />
 

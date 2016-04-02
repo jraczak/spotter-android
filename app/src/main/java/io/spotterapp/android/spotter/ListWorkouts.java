@@ -82,7 +82,7 @@ public class ListWorkouts extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(getApplicationContext(),
-                        mWorkoutsList.get(position).name,
+                        "You tapped " + mWorkoutsList.get(position).name,
                         Toast.LENGTH_SHORT).show();
             }
         });

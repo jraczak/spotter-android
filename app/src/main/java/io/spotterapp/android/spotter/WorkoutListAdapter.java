@@ -47,6 +47,7 @@ public class WorkoutListAdapter extends BaseAdapter{
         TextView workoutNameTextView;
         TextView workoutDateTextView;
         TextView workoutStartTimeTextView;
+        TextView workoutProgramName;
 
         Log.d(LOG_TAG, "convertView is " + convertView);
         Log.d(LOG_TAG, "parent is " + parent);
@@ -76,11 +77,15 @@ public class WorkoutListAdapter extends BaseAdapter{
         }
         Log.d(LOG_TAG, "Setting card values for " + this.mWorkoutsList.get(position).name);
 
+        //TODO: Set up real values for the program name
+
         workoutNameTextView = (TextView) cardView.findViewById(R.id.list_workouts_workout_name);
         workoutDateTextView = (TextView) cardView.findViewById(R.id.list_workouts_workout_date);
         workoutStartTimeTextView = (TextView) cardView.findViewById(R.id.list_workouts_start_time);
+        workoutProgramName = (TextView) cardView.findViewById(R.id.list_workouts_program_name);
 
 
+        workoutProgramName.setText("Size Gains");
         workoutNameTextView.setText(this.mWorkoutsList.get(position).name);
         workoutDateTextView.setText(this.mWorkoutsList.get(position).date);
         workoutStartTimeTextView.setText("Started at " + this.mWorkoutsList.get(position).startTime);
