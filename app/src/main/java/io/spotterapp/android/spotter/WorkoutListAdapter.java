@@ -49,13 +49,15 @@ public class WorkoutListAdapter extends BaseAdapter{
         TextView workoutStartTimeTextView;
         TextView workoutProgramName;
 
+        Workout workout = (Workout) this.getItem(position);
+
         Log.d(LOG_TAG, "convertView is " + convertView);
         Log.d(LOG_TAG, "parent is " + parent);
 
         if (convertView == null) {
             // If the view isn't recycled, initialize it
 
-            Log.d(LOG_TAG, "Workout name is " + this.mWorkoutsList.get(position).name);
+            Log.d(LOG_TAG, "Workout name is " + workout.getName());
 
             cardView = (CardView) mInflater.inflate(R.layout.fragment_workout_list_item, parent, false);
             //workoutNameTextView = (TextView) cardView.findViewById(R.id.list_workouts_workout_name);
@@ -75,7 +77,7 @@ public class WorkoutListAdapter extends BaseAdapter{
         else {
             cardView = (CardView) convertView;
         }
-        Log.d(LOG_TAG, "Setting card values for " + this.mWorkoutsList.get(position).name);
+        Log.d(LOG_TAG, "Setting card values for " + workout.getName());
 
         //TODO: Set up real values for the program name
 
@@ -86,11 +88,11 @@ public class WorkoutListAdapter extends BaseAdapter{
 
 
         workoutProgramName.setText("Size Gains");
-        workoutNameTextView.setText(this.mWorkoutsList.get(position).name);
-        workoutDateTextView.setText(this.mWorkoutsList.get(position).date);
-        workoutStartTimeTextView.setText("Started at " + this.mWorkoutsList.get(position).startTime);
+        workoutNameTextView.setText(workout.getName());
+        workoutDateTextView.setText(workout.getDate());
+        workoutStartTimeTextView.setText("Started at " + workout.getStartTime());
 
-        Log.d("getView adapter", "Tried to make card for " + this.mWorkoutsList.get(position).name);
+        Log.d("getView adapter", "Tried to make card for " + workout.getName());
 
 
 
