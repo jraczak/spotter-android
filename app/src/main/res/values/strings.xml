@@ -2,7 +2,7 @@
     <string name="app_name">Spotter</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    
+
     <!-- List Workouts Strings -->
     <string name="user_greeting">Hi, Justin</string>
 
@@ -13,17 +13,16 @@
 
     <!-- Exercise strings -->
 
-    <string-array name="muscle-group-entries">
-        <item>Chest</item>
-        <item>Back</item>
-        <item>Shoulders</item>
-        <item>Biceps</item>
-        <item>Triceps</item>
-        <item>Legs</item>
-        <item>Abdominals</item>
+    <string name="hint_new_exercise_name">Exercise name</string>
+    <string name="hint_new_exercise_type">Select an exercise type</string>
+    <string name="hint_new_exercise_muscle_group">Select a target muscle group</string>
+
+
+    <string-array name="exercise_type_values">
+        <item>reps</item>
     </string-array>
 
-    <string-array name="muscle-group-values">
+    <string-array name="muscle_group_values">
         <item>chest</item>
         <item>back</item>
         <item>shoulders</item>
@@ -32,5 +31,6 @@
         <item>legs</item>
         <item>abdominals</item>
     </string-array>
+    <string name="title_activity_new_exercise">New Exercise</string>
 
 </resources>

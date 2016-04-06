@@ -35,7 +35,13 @@
         android:paddingTop="48dp"
         android:layout_marginBottom="40dp"/>
 
+    <TextView
+        android:id="@+id/exercise_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <Button
+        android:id="@+id/button_new_workout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="24dp"
@@ -44,7 +50,7 @@
         android:paddingRight="48dp"
         android:textColor="@android:color/white"
         android:background="#f45249"
-        android:text="+ New workout"/>
+        android:text="+ New Exercise"/>
 
     <ListView
         android:id="@+id/list_workouts_listview"

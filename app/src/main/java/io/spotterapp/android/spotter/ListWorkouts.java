@@ -1,6 +1,7 @@
 package io.spotterapp.android.spotter;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -8,17 +9,25 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
+import io.realm.RealmResults;
+
 public class ListWorkouts extends Activity {
 
     public final String LOG_TAG = ListWorkouts.class.getSimpleName();
+
+    private Realm realm;
 
     private WorkoutListAdapter mWorkoutListAdapter;
     private ArrayList<Workout> mWorkoutsList;
@@ -27,6 +36,13 @@ public class ListWorkouts extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_workouts);
+
+        RealmConfiguration realmConfiguration = new RealmConfiguration.Builder(this)
+                .name("spotter.realm")
+                .build();
+
+        Realm.setDefaultConfiguration(realmConfiguration);
+        realm = Realm.getDefaultInstance();
 
         mWorkoutsList = new ArrayList<>();
 
@@ -63,6 +79,20 @@ public class ListWorkouts extends Activity {
         mWorkoutsList.add(workout3);
         mWorkoutsList.add(workout4);
 
+
+        RealmResults<Exercise> results = realm.allObjects(Exercise.class);
+
+        TextView exerciseList = (TextView) findViewById(R.id.exercise_list);
+
+        String exerciseString = "";
+
+        for(Exercise r: results) {
+            exerciseString +=
+                    r.getName() + " - " + r.getMuscleGroup() + "\n";
+        }
+
+        exerciseList.setText(exerciseString);
+
         Log.d("onCreate", "Array list size is " + mWorkoutsList.size());
 
         Log.d(LOG_TAG, "Instantiating the listview, passing in the array of workouts");
@@ -86,9 +116,16 @@ public class ListWorkouts extends Activity {
                         Toast.LENGTH_SHORT).show();
             }
         });
+
+        Button newWorkoutButton = (Button) findViewById(R.id.button_new_workout);
+        newWorkoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), NewExercise.class);
+                startActivity(intent);
+            }
+        });
     }
-
-
 
 
     @Override
@@ -140,5 +177,11 @@ public class ListWorkouts extends Activity {
         else {
             return false;
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        realm.close();
     }
 }
