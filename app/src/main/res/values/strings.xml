@@ -3,11 +3,16 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 
+    <!-- App bar strings -->
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+
     <!-- Nav drawer strings -->
 
     <string-array name="nav_drawer_labels">
         <item>Workout History</item>
         <item>Add New Exercise</item>
+
     </string-array>
 
     <!-- List Workouts Strings -->

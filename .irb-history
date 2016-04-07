@@ -29,3 +29,8 @@ enter_text_in({marked: 'exercise_name_text_field'}, "Incline Barbell Chest Press
 tap({marked: 'Save Exercise'})
 copy
 exit
+tree
+install_app
+start_app
+tree
+exit
