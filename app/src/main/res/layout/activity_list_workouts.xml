@@ -1,67 +1,83 @@
-<ScrollView
+<android.support.v4.widget.DrawerLayout
+    android:id="@+id/nav_drawer_drawer"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/list_workouts_scrollview"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    >
-<LinearLayout
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/container"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginLeft="16dp"
-    android:layout_marginRight="16dp"
-    android:paddingTop="32dp"
-    tools:context=".ListWorkouts"
-    tools:ignore="MergeRootFrame"
-    android:orientation="vertical"
-    android:focusableInTouchMode="true">
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/spotter_logo"
-        android:maxHeight="100dp"
-        android:scaleType="fitCenter"
-        android:adjustViewBounds="true" />
-
-    <TextView
-        android:id="@+id/user_greeting"
-        android:text="@string/user_greeting"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        android:paddingTop="48dp"
-        android:layout_marginBottom="40dp"/>
-
-    <TextView
-        android:id="@+id/exercise_list"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <Button
-        android:id="@+id/button_new_workout"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:id="@+id/list_workouts_scrollview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="24dp"
-        android:paddingBottom="24dp"
-        android:paddingLeft="48dp"
-        android:paddingRight="48dp"
-        android:textColor="@android:color/white"
-        android:background="#f45249"
-        android:text="+ New Exercise"/>
+        >
+        <LinearLayout
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:paddingTop="32dp"
+            tools:context=".ListWorkouts"
+            tools:ignore="MergeRootFrame"
+            android:orientation="vertical"
+            android:focusableInTouchMode="true">
 
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/spotter_logo"
+                android:maxHeight="100dp"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true" />
+
+            <TextView
+                android:id="@+id/user_greeting"
+                android:text="@string/user_greeting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="40sp"
+                android:textStyle="bold"
+                android:paddingTop="48dp"
+                android:layout_marginBottom="40dp"/>
+
+            <TextView
+                android:id="@+id/exercise_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/button_new_workout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="24dp"
+                android:paddingBottom="24dp"
+                android:paddingLeft="48dp"
+                android:paddingRight="48dp"
+                android:textColor="@android:color/white"
+                android:background="#f45249"
+                android:text="+ New Exercise"/>
+
+            <ListView
+                android:id="@+id/list_workouts_listview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="16dp"
+                android:divider="@android:color/transparent"
+                android:dividerHeight="16dp">
+            </ListView>
+
+        </LinearLayout>
+    </ScrollView>
     <ListView
-        android:id="@+id/list_workouts_listview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="16dp"
+        android:id="@+id/nav_drawer_listview"
+        android:layout_width="240dp"
+        android:layout_height="match_parent"
+        android:paddingTop="16dp"
+        android:layout_gravity="start"
+        android:choiceMode="singleChoice"
         android:divider="@android:color/transparent"
-        android:dividerHeight="16dp">
+        android:dividerHeight="0dp"
+        android:background="#f45249">
     </ListView>
-
-</LinearLayout>
-</ScrollView>
+</android.support.v4.widget.DrawerLayout>

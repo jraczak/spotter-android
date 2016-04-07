@@ -3,12 +3,15 @@ package io.spotterapp.android.spotter;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -32,10 +35,46 @@ public class ListWorkouts extends Activity {
     private WorkoutListAdapter mWorkoutListAdapter;
     private ArrayList<Workout> mWorkoutsList;
 
+    // Nav drawer variables
+    private String[] mNavDrawerItems;
+    private DrawerLayout mDrawerLayout;
+    private ListView mDrawerListView;
+    private ActionBarDrawerToggle mDrawerToggle;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_workouts);
+
+        // Set up the nav drawer
+        mNavDrawerItems = getResources().getStringArray(R.array.nav_drawer_labels);
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.nav_drawer_drawer);
+        mDrawerListView = (ListView) findViewById(R.id.nav_drawer_listview);
+
+
+        // Set the adapter on the ListView
+        mDrawerListView.setAdapter(new ArrayAdapter<String>(this,
+                R.layout.nav_drawer_list_item, mNavDrawerItems));
+
+        // Set up the click listener
+        mDrawerListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.d(LOG_TAG, "Item value is " + mNavDrawerItems[position]);
+
+                if (position == 1 ) {
+                    //(mNavDrawerItems[position] == "Add New Exercise")
+                    Intent intent = new Intent(getApplicationContext(), NewExercise.class);
+                    startActivity(intent);
+                } else //if //(mNavDrawerItems[position] == "Workout History") {
+                if (position == 0) {
+                    Intent intent = new Intent(getApplicationContext(), ListWorkouts.class);
+                    startActivity(intent);
+                }
+            }
+        });
+
+
 
         RealmConfiguration realmConfiguration = new RealmConfiguration.Builder(this)
                 .name("spotter.realm")
