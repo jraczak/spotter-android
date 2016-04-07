@@ -10,6 +10,26 @@ Given(/^I am on the workouts list$/) do
   wait_for_view("* text:'Hi, Justin'")
 end
 
+When(/^I create a new exercise that doesn't exist$/) do
+  tap({marked: '+ New Exercise'})
+  enter_text_in({marked: 'exercise_name_text_field'}, "Barbell Bench Press")
+  tap({marked: 'Save Exercise'})
+end
+
+Then(/^I should see a confirmation message$/) do
+   wait_for_view({marked: 'Barbell Bench Press was added to your library'})
+end
+
+When(/^I try to create a new exercise that already exists$/) do
+  tap({marked: '+ New Exercise'})
+  enter_text_in({marked: 'exercise_name_text_field'}, "Barbell Bench Press")
+  tap({marked: 'Save Exercise'})
+end
+
+Then(/^I should see an error message$/) do
+   wait_for_view({marked: 'This exercise already exists within this muscle group'})
+end
+
 When(/^I tap the "([^\"]*)" workout card$/) do |workout_name|
   # Sample step definition
   # Example: When I create a new entry

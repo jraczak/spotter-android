@@ -1,0 +1,31 @@
+install_app
+start_app
+tree
+exit
+install_app
+start_app
+exit
+exit
+install_app
+start_app
+tree
+tap({"* marked: 'NEW EXERCISE'})
+tap({"* marked: 'NEW EXERCISE'"})
+tap("* marked: 'NEW EXERCISE'")
+tap({marked: 'NEW EXERCISE'})
+tap({marked: '+ NEW EXERCISE'})
+tap({marked: '+ New Exercise'})
+tree
+enter_text_in({id: exercise_name_text_field, "Barbell Bench Press"})
+enter_text_in({id: exercise_name_text_field}, "Barbell Bench Press")
+enter_text_in(id: exercise_name_text_field, "Barbell Bench Press")
+enter_text_in({id: 'exercise_name_text_field', "Barbell Bench Press"})
+enter_text_in({id: 'exercise_name_text_field'}, "Barbell Bench Press")
+tap({marked: 'save exercise'})
+tap({marked: 'Save Exercise'})
+tap({marked: '+ New Exercise'})
+tree
+enter_text_in({marked: 'exercise_name_text_field'}, "Incline Barbell Chest Press")
+tap({marked: 'Save Exercise'})
+copy
+exit
