@@ -12,6 +12,8 @@
     <string-array name="nav_drawer_labels">
         <item>Workout History</item>
         <item>Add New Exercise</item>
+        <item>Create New Program</item>
+        <item>My Programs</item>
 
     </string-array>
 
@@ -44,5 +46,13 @@
         <item>abdominals</item>
     </string-array>
     <string name="title_activity_new_exercise">New Exercise</string>
+    <string name="title_activity_new_program">New Program</string>
+
+    <!-- Program strings -->
+
+    <string name="hint_new_program_name">Program name</string>
+    <string name="hint_new_program_description">What is the focus of this program?</string>
+    <string name="title_activity_list_programs">My Programs</string>
+    <string name="title_activity_view_program">View Program</string>
 
 </resources>

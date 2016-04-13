@@ -16,6 +16,7 @@ public class SpotterApplication extends Application {
 
         RealmConfiguration realmConfiguration = new RealmConfiguration.Builder(this)
                 .name("spotter.realm")
+                .deleteRealmIfMigrationNeeded()
                 .build();
 
         Realm.setDefaultConfiguration(realmConfiguration);

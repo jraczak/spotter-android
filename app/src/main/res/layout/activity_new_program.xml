@@ -1,13 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="io.spotterapp.android.spotter.NewProgram">
+    tools:context="io.spotterapp.android.spotter.NewProgram"
+    android:orientation="vertical">
 
-</RelativeLayout>
+    <EditText
+        android:id="@+id/program_name_text_field"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_new_program_name"
+        android:maxLines="1"
+        android:layout_marginBottom="16dp"/>
+
+    <EditText
+        android:id="@+id/program_description_text_field"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_new_program_description"
+        android:maxLines="1"
+        android:layout_marginBottom="16dp"/>
+
+    <Button
+        android:id="@+id/button_new_program"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="24dp"
+        android:paddingBottom="24dp"
+        android:paddingLeft="48dp"
+        android:paddingRight="48dp"
+        android:textColor="@android:color/white"
+        android:background="#f45249"
+        android:text="Create Program"
+        android:onClick="createProgram"/>
+
+</LinearLayout>

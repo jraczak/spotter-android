@@ -26,6 +26,30 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="io.spotterapp.android.spotter.ListWorkouts" />
         </activity>
+        <activity
+            android:name=".NewProgram"
+            android:label="@string/title_activity_new_program"
+            android:parentActivityName=".ListWorkouts">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="io.spotterapp.android.spotter.ListWorkouts" />
+        </activity>
+        <activity
+            android:name=".ListPrograms"
+            android:label="@string/title_activity_list_programs"
+            android:parentActivityName=".ListWorkouts">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="io.spotterapp.android.spotter.ListWorkouts" />
+        </activity>
+        <activity
+            android:name=".ViewProgram"
+            android:label="@string/title_activity_view_program"
+            android:parentActivityName=".ListPrograms">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="io.spotterapp.android.spotter.ListPrograms" />
+        </activity>
     </application>
 
 </manifest>

@@ -70,7 +70,15 @@ public class ListWorkouts extends Activity {
                 if (position == 0) {
                     Intent intent = new Intent(getApplicationContext(), ListWorkouts.class);
                     startActivity(intent);
-                }
+                } else
+                    if (position == 2) {
+                        Intent intent = new Intent(getApplicationContext(), NewProgram.class);
+                        startActivity(intent);
+                    }
+                else if (position == 3) {
+                        Intent intent = new Intent(getApplicationContext(), ListPrograms.class);
+                        startActivity(intent);
+                    }
             }
         });
 
@@ -96,8 +104,10 @@ public class ListWorkouts extends Activity {
         //getActionBar().setHomeButtonEnabled(true);
 
 
+        //TODO: Figure out where this is actually supposed to go.
         RealmConfiguration realmConfiguration = new RealmConfiguration.Builder(this)
                 .name("spotter.realm")
+                .deleteRealmIfMigrationNeeded()
                 .build();
 
         Realm.setDefaultConfiguration(realmConfiguration);
