@@ -10,7 +10,7 @@ Given(/^I am on the workouts list$/) do
   wait_for_view("* text:'Hi, Justin'")
 end
 
-When(/^I create a new exercise that doesn't exist$/) do
+When(/^I try to create a new exercise that doesn't exist$/) do
   tap({marked: '+ New Exercise'})
   enter_text_in({marked: 'exercise_name_text_field'}, "Barbell Bench Press")
   tap({marked: 'Save Exercise'})
