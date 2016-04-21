@@ -44,7 +44,7 @@ public class NewProgram extends Activity {
             realm.commitTransaction();
             realm.close();
 
-            Intent intent = new Intent(this, ListWorkouts.class);
+            Intent intent = new Intent(this, ViewProgram.class);
             intent.putExtra("program_name", program.getName());
             startActivity(intent);
 
