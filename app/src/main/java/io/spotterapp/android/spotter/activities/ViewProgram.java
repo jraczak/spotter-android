@@ -1,10 +1,12 @@
-package io.spotterapp.android.spotter;
+package io.spotterapp.android.spotter.activities;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.TextView;
 
 import io.realm.Realm;
+import io.spotterapp.android.spotter.models.Program;
+import io.spotterapp.android.spotter.R;
 
 public class ViewProgram extends Activity {
 

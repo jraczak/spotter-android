@@ -1,4 +1,4 @@
-package io.spotterapp.android.spotter;
+package io.spotterapp.android.spotter.activities;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -11,6 +11,8 @@ import android.widget.Toast;
 import java.util.UUID;
 
 import io.realm.Realm;
+import io.spotterapp.android.spotter.models.Program;
+import io.spotterapp.android.spotter.R;
 
 public class NewProgram extends Activity {
 

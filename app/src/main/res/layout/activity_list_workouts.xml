@@ -16,7 +16,7 @@
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:paddingTop="32dp"
-            tools:context=".ListWorkouts"
+            tools:context=".activities.ListWorkouts"
             tools:ignore="MergeRootFrame"
             android:orientation="vertical"
             android:focusableInTouchMode="true">

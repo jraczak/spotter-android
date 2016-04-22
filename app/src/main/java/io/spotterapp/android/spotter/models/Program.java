@@ -1,4 +1,4 @@
-package io.spotterapp.android.spotter;
+package io.spotterapp.android.spotter.models;
 
 import io.realm.RealmObject;
 

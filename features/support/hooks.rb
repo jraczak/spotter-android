@@ -8,7 +8,7 @@ Before do |scenario|
   AppLifeCycle.on_new_scenario(scenario)
 
 	options = {
-	:activity => "io.spotterapp.android.spotter.ListWorkouts"
+	:activity => "io.spotterapp.android.spotter.activities.ListWorkouts"
 }
   start_app(options)
 end

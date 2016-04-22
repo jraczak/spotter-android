@@ -1,4 +1,4 @@
-package io.spotterapp.android.spotter;
+package io.spotterapp.android.spotter.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.CardView;
@@ -9,33 +9,35 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import java.util.ArrayList;
+import io.realm.RealmResults;
+import io.spotterapp.android.spotter.R;
+import io.spotterapp.android.spotter.models.Program;
 
 /**
  * Created by Justin on 3/26/16.
  */
-public class WorkoutListAdapter extends BaseAdapter{
+public class ProgramListAdapter extends BaseAdapter{
 
-    private final String LOG_TAG = WorkoutListAdapter.class.getSimpleName();
+    private final String LOG_TAG = ProgramListAdapter.class.getSimpleName();
 
     private Context mContext;
-    public int numberOfWorkouts;
-    public ArrayList<Workout> mWorkoutsList;
+    public int numberOfPrograms;
+    public RealmResults<Program> mPrograms;
     public LayoutInflater mInflater;
 
-    public WorkoutListAdapter(Context context, int count, ArrayList<Workout> workouts) {
+    public ProgramListAdapter(Context context, int count, RealmResults<Program> programs) {
         mContext = context;
-        numberOfWorkouts = count;
-        mWorkoutsList = workouts;
+        numberOfPrograms = count;
+        mPrograms = programs;
         mInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
     public int getCount() {
-        return mWorkoutsList.size();
+        return mPrograms.size();
     }
 
     public Object getItem(int position) {
-        return mWorkoutsList.toArray()[position];
+        return mPrograms.toArray()[position];
     }
 
     public long getItemId(int position) {
@@ -44,12 +46,10 @@ public class WorkoutListAdapter extends BaseAdapter{
 
     public View getView(int position, View convertView, ViewGroup parent) {
         CardView cardView;
-        TextView workoutNameTextView;
-        TextView workoutDateTextView;
-        TextView workoutStartTimeTextView;
-        TextView workoutProgramName;
+        TextView programNameTextView;
+        TextView programDescriptionTextView;
 
-        Workout workout = (Workout) this.getItem(position);
+        Program program = (Program) this.getItem(position);
 
         Log.d(LOG_TAG, "convertView is " + convertView);
         Log.d(LOG_TAG, "parent is " + parent);
@@ -57,9 +57,9 @@ public class WorkoutListAdapter extends BaseAdapter{
         if (convertView == null) {
             // If the view isn't recycled, initialize it
 
-            Log.d(LOG_TAG, "Workout name is " + workout.getName());
+            Log.d(LOG_TAG, "Program name is " + program.getName());
 
-            cardView = (CardView) mInflater.inflate(R.layout.fragment_workout_list_item, parent, false);
+            cardView = (CardView) mInflater.inflate(R.layout.fragment_program_list_item, parent, false);
             //workoutNameTextView = (TextView) cardView.findViewById(R.id.list_workouts_workout_name);
             //workoutDateTextView = (TextView) cardView.findViewById(R.id.list_workouts_workout_date);
             //workoutStartTimeTextview = (TextView) cardView.findViewById(R.id.list_workouts_start_time);
@@ -77,24 +77,17 @@ public class WorkoutListAdapter extends BaseAdapter{
         else {
             cardView = (CardView) convertView;
         }
-        Log.d(LOG_TAG, "Setting card values for " + workout.getName());
+        Log.d(LOG_TAG, "Setting card values for " + program.getName());
 
         //TODO: Set up real values for the program name
 
-        workoutNameTextView = (TextView) cardView.findViewById(R.id.list_workouts_workout_name);
-        workoutDateTextView = (TextView) cardView.findViewById(R.id.list_workouts_workout_date);
-        workoutStartTimeTextView = (TextView) cardView.findViewById(R.id.list_workouts_start_time);
-        workoutProgramName = (TextView) cardView.findViewById(R.id.list_workouts_program_name);
+        programNameTextView = (TextView) cardView.findViewById(R.id.list_programs_program_name);
+        programDescriptionTextView = (TextView) cardView.findViewById(R.id.list_programs_description);
 
+        programNameTextView.setText(program.getName());
+        programDescriptionTextView.setText(program.getDescription());
 
-        workoutProgramName.setText("Size Gains");
-        workoutNameTextView.setText(workout.getName());
-        workoutDateTextView.setText(workout.getDate());
-        workoutStartTimeTextView.setText("Started at " + workout.getStartTime());
-
-        Log.d("getView adapter", "Tried to make card for " + workout.getName());
-
-
+        Log.d("getView adapter", "Tried to make card for " + program.getName());
 
         return cardView;
     }

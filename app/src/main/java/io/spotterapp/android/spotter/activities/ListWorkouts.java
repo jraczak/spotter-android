@@ -1,4 +1,4 @@
-package io.spotterapp.android.spotter;
+package io.spotterapp.android.spotter.activities;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -25,6 +25,10 @@ import java.util.Date;
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
 import io.realm.RealmResults;
+import io.spotterapp.android.spotter.models.Exercise;
+import io.spotterapp.android.spotter.R;
+import io.spotterapp.android.spotter.models.Workout;
+import io.spotterapp.android.spotter.adapters.WorkoutListAdapter;
 
 public class ListWorkouts extends Activity {
 

@@ -54,5 +54,6 @@
     <string name="hint_new_program_description">What is the focus of this program?</string>
     <string name="title_activity_list_programs">My Programs</string>
     <string name="title_activity_view_program">View Program</string>
+    <string name="title_activity_list_exercises">Exercise Library</string>
 
 </resources>

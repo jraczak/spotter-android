@@ -1,4 +1,4 @@
-package io.spotterapp.android.spotter;
+package io.spotterapp.android.spotter.activities;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -12,6 +12,9 @@ import android.widget.ListView;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
+import io.spotterapp.android.spotter.models.Program;
+import io.spotterapp.android.spotter.adapters.ProgramListAdapter;
+import io.spotterapp.android.spotter.R;
 
 public class ListPrograms extends Activity {
 
