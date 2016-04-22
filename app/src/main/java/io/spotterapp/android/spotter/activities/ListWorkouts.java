@@ -83,6 +83,10 @@ public class ListWorkouts extends Activity {
                         Intent intent = new Intent(getApplicationContext(), ListPrograms.class);
                         startActivity(intent);
                     }
+                else if (position == 4) {
+                        Intent intent = new Intent(getApplicationContext(), ListExercises.class);
+                        startActivity(intent);
+                    }
             }
         });
 

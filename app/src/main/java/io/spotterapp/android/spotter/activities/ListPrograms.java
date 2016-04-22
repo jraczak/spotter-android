@@ -34,7 +34,7 @@ public class ListPrograms extends Activity {
         realm = Realm.getDefaultInstance();
 
         mPrograms = realm.allObjects(Program.class);
-        //final Program[] programArray = (Program[]) mPrograms.toArray();
+        //final Program[] programArray = (Program[]) mExercises.toArray();
 
         Log.d(LOG_TAG, mPrograms.size() + " programs were found.");
 
