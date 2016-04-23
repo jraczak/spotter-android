@@ -7,17 +7,23 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".activities.ViewProgram"
+    tools:context="io.spotterapp.android.spotter.activities.NewProgramDay"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/view_program_program_name"
+    <EditText
+        android:id="@+id/program_day_name_text_field"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_new_program_day_name"/>
+
+    <TextView
+        android:id="@+id/program_day_name_helper_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/program_day_helper_message"/>
 
     <Button
-        android:id="@+id/button_new_program_day"
-        android:text="@string/button_build_new_program_day"
+        android:id="@+id/button_create_program_day"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="24dp"
@@ -25,6 +31,7 @@
         android:paddingLeft="48dp"
         android:paddingRight="48dp"
         android:textColor="@android:color/white"
-        android:background="#f45249"/>
+        android:background="#f45249"
+        android:text="@string/button_create_program_day"/>
 
 </LinearLayout>

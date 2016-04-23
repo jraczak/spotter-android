@@ -2,4 +2,8 @@
 <resources>
     <style name="AppTheme" parent="android:Theme.Material.Light">
     </style>
+
+    <style name="primary_large_button">
+        <!-- TODO: Create a button style -->
+    </style>
 </resources>

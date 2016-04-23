@@ -58,6 +58,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.ListWorkouts" />
         </activity>
+        <activity
+            android:name=".activities.NewProgramDay"
+            android:label="@string/title_activity_new_program_day"
+            android:parentActivityName=".activities.NewProgram">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="io.spotterapp.android.spotter.activities.NewProgram" />
+        </activity>
     </application>
 
 </manifest>

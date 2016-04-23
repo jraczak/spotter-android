@@ -34,23 +34,24 @@ public class NewProgram extends Activity {
         EditText name = (EditText) findViewById(R.id.program_name_text_field);
         EditText description = (EditText) findViewById(R.id.program_description_text_field);
 
-            realm.beginTransaction();
-            Program program = realm.createObject(Program.class);
+        realm.beginTransaction();
+        Program program = realm.createObject(Program.class);
 
-            program.setId(UUID.randomUUID().toString());
-            program.setName(name.getText().toString());
-            program.setDescription(description.getText().toString());
+        program.setId(UUID.randomUUID().toString());
+        program.setName(name.getText().toString());
+        program.setDescription(description.getText().toString());
 
-            Log.d(LOG_TAG, "The program state is: " + program);
+        Log.d(LOG_TAG, "The program object is: " + program);
 
-            realm.commitTransaction();
-            realm.close();
+        realm.commitTransaction();
+        realm.close();
 
-            Intent intent = new Intent(this, ViewProgram.class);
-            intent.putExtra("program_name", program.getName());
-            startActivity(intent);
+        Intent intent = new Intent(this, ViewProgram.class);
+        intent.putExtra("program_name", program.getName());
+        intent.putExtra("program_id", program.getId());
+        startActivity(intent);
 
-            Toast.makeText(this, program.getName() + " was added to your program library", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, program.getName() + " was added to your program library", Toast.LENGTH_LONG).show();
     }
 
 }

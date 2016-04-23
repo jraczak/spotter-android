@@ -56,5 +56,15 @@
     <string name="title_activity_list_programs">My Programs</string>
     <string name="title_activity_view_program">View Program</string>
     <string name="title_activity_list_exercises">Exercise Library</string>
+    <string name="title_activity_new_program_day">New Program Day</string>
+
+    <!-- Program day strings -->
+
+    <string name="button_build_new_program_day">Build New Program Day</string>
+
+    <string name="hint_new_program_day_name">Program day name</string>
+    <string name="program_day_helper_message">It's a good idea to use a
+    name that describes what you'll be working on this day.</string>
+    <string name="button_create_program_day">Create Program Day</string>
 
 </resources>
