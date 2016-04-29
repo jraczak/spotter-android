@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
+    card_view:cardCornerRadius="2dp"
+    card_view:cardElevation="4sp">
+
+
+
+    <LinearLayout
+        android:id="@+id/program_day_card_linear_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:background="#f45249">
+
+        <TextView
+            android:id="@+id/list_program_days_day_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Chest &amp; Triceps"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginTop="4dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="20dp"
+            android:textColor="@android:color/white"
+            />
+
+        <TextView
+            android:id="@+id/list_program_days_day_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="12 Exercises  -  48 Sets"
+            android:layout_marginBottom="16dp"
+            android:textColor="@android:color/white"
+            />
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

@@ -63,8 +63,8 @@
     <string name="button_build_new_program_day">Build New Program Day</string>
 
     <string name="hint_new_program_day_name">Program day name</string>
-    <string name="program_day_helper_message">It's a good idea to use a
-    name that describes what you'll be working on this day.</string>
+    <string name="program_day_helper_message">It\'s a good idea to use a
+    name that describes what you\'ll be working on this day.</string>
     <string name="button_create_program_day">Create Program Day</string>
 
 </resources>

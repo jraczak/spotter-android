@@ -46,4 +46,9 @@ public class ProgramDay extends RealmObject {
     public void setProgram(Program program) {
         this.program = program;
     }
+
+    public String getDetailString() {
+        //TODO: Add sets to program day exercises and insert a real count of sets
+        return exercises.size() + " exercises  -  " + "48 Sets";
+    }
 }

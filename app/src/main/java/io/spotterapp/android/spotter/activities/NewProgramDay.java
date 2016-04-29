@@ -5,12 +5,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 import java.util.UUID;
 
 import io.realm.Realm;
 import io.spotterapp.android.spotter.R;
+import io.spotterapp.android.spotter.models.Program;
 import io.spotterapp.android.spotter.models.ProgramDay;
 
 public class NewProgramDay extends Activity {
@@ -28,11 +30,22 @@ public class NewProgramDay extends Activity {
         realm = Realm.getDefaultInstance();
 
         //TODO: Set the create program listener here
+        Button createProgramDayButton = (Button) findViewById(R.id.button_create_program_day);
+        createProgramDayButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                createProgramDay(v);
+            }
+        });
     }
 
     public void createProgramDay(View view) {
 
         EditText name = (EditText) findViewById(R.id.program_day_name_text_field);
+        String programId = getIntent().getStringExtra("program_id");
+        Program program = realm.where(Program.class)
+                .equalTo("id", programId)
+                .findFirst();
 
         realm.beginTransaction();
         ProgramDay programDay = realm.createObject(ProgramDay.class);
@@ -46,8 +59,8 @@ public class NewProgramDay extends Activity {
         realm.close();
 
         Intent intent = new Intent(this, ViewProgram.class);
-
-                //TODO: How do I get reference to the parent program here?
+        intent.putExtra("program_id", programId);
+        startActivity(intent);
 
     }
 

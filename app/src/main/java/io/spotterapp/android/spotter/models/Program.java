@@ -1,5 +1,6 @@
 package io.spotterapp.android.spotter.models;
 
+import io.realm.RealmList;
 import io.realm.RealmObject;
 
 /**
@@ -9,7 +10,8 @@ public class Program extends RealmObject {
 
     private String name;
     private String description;
-    private String Id;
+    private String id;
+    private RealmList<ProgramDay> programDays;
 
     public String getName() {
         return name;
@@ -28,10 +30,22 @@ public class Program extends RealmObject {
     }
 
     public String getId() {
-        return Id;
+        return id;
     }
 
     public void setId(String id) {
-        Id = id;
+        this.id = id;
+    }
+
+    public RealmList<ProgramDay> getProgramDays() {
+        return programDays;
+    }
+
+    public void setProgramDays(RealmList<ProgramDay> programDays) {
+        this.programDays = programDays;
+    }
+
+    public int countProgramDays() {
+        return (this.programDays.size() != null) ? 0 : this.programDays.size();
     }
 }
