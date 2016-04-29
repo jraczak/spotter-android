@@ -46,14 +46,19 @@ public class NewProgramDay extends Activity {
         Program program = realm.where(Program.class)
                 .equalTo("id", programId)
                 .findFirst();
-
         realm.beginTransaction();
         ProgramDay programDay = realm.createObject(ProgramDay.class);
 
         programDay.setId(UUID.randomUUID().toString());
+        Log.d(LOG_TAG, "Setting program day name to " + name.getText());
         programDay.setName(name.getText().toString());
+        Log.d(LOG_TAG, "Setting program to " + program.getName());
+        programDay.setProgram(program);
 
         Log.d(LOG_TAG, "The program day object is: " + programDay);
+
+        Log.d(LOG_TAG, "Adding the program day to the program");
+        program.getProgramDays().add(programDay);
 
         realm.commitTransaction();
         realm.close();

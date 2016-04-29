@@ -33,7 +33,11 @@ public class ProgramDayListAdapter extends BaseAdapter{
     }
 
     public int getCount() {
-        return mProgramDays.size();
+        if (mProgramDays == null) {
+            return 0;
+        } else {
+            return mProgramDays.size();
+        }
     }
 
     public Object getItem(int position) {
@@ -68,8 +72,8 @@ public class ProgramDayListAdapter extends BaseAdapter{
         }
         Log.d(LOG_TAG, "Setting card values for " + programDay.getName());
 
-        programDayNameTextView = (TextView) cardView.findViewById(R.id.list_programs_program_name);
-        programDayDetailTextView = (TextView) cardView.findViewById(R.id.list_programs_description);
+        programDayNameTextView = (TextView) cardView.findViewById(R.id.list_program_days_day_name);
+        programDayDetailTextView = (TextView) cardView.findViewById(R.id.list_program_days_day_description);
 
         programDayNameTextView.setText(programDay.getName());
         programDayDetailTextView.setText(programDay.getDetailString());

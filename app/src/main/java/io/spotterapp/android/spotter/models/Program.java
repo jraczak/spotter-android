@@ -45,7 +45,8 @@ public class Program extends RealmObject {
         this.programDays = programDays;
     }
 
-    public int countProgramDays() {
-        return (this.programDays.size() != null) ? 0 : this.programDays.size();
-    }
+    //public int countProgramDays() {
+    //
+    //    return (Integer(this.programDays.size()) != null) ? 0 : this.programDays.size();
+    //}
 }

@@ -45,8 +45,6 @@ public class ViewProgram extends Activity {
         TextView programNameTextView = (TextView) findViewById(R.id.view_program_program_name);
         programNameTextView.setText(program.getName());
 
-        int programDayCount = program.countProgramDays();
-
         // Set click listener for new program day button
         Button buildProgramDayButton = (Button) findViewById(R.id.button_new_program_day);
         final Intent buildProgramDayIntent = new Intent(this, NewProgramDay.class);
@@ -60,12 +58,19 @@ public class ViewProgram extends Activity {
 
         //TODO: List out each of the program days
         // Collect all the program days associated with the program
-        RealmList<ProgramDay> programDays = program.getProgramDays();
-
-        Log.d(LOG_TAG, "This program has " + programDays.size() + " program days.");
+        mProgramDays = program.getProgramDays();
 
         //TODO: Address when there are no program days and therefor .size causes null exception
-        mProgramDayListAdapter = new ProgramDayListAdapter(this, mProgramDays.size(), mProgramDays);
+        int programDaysCount;
+        if (mProgramDays == null) {
+            programDaysCount = 0;
+        }
+        else {
+            programDaysCount = mProgramDays.size();
+        }
+        Log.d(LOG_TAG, "This program has " + programDaysCount + " program days.");
+
+        mProgramDayListAdapter = new ProgramDayListAdapter(this, programDaysCount, mProgramDays);
 
         ListView listView = (ListView) findViewById(R.id.list_program_days_listview);
         listView.setAdapter(mProgramDayListAdapter);
@@ -78,9 +83,6 @@ public class ViewProgram extends Activity {
                 Toast.makeText(getApplicationContext(), programDay.getName() + " was clicked.", Toast.LENGTH_LONG).show();
             }
         });
-
-
-
 
         realm.close();
 
